@@ -1,8 +1,11 @@
 
 "-Begin-----------------------------------------------------------------
 "-
-"- Function module to export any table, view or CDS view as Excel
-"- table on the frontend server via ABAP2XLSX.
+"- Function module to export any table or view, include CDS, as Excel
+"- table on the frontend server via ABAP2XLSX. The IV_NAME parameter
+"- expects the table or view name. The IV_WHERE parameter expects for a
+"- table the SQL where clause and the IV_CDS_PARAMS the necessary
+"- parameter of the CDS view.
 "-
 "-----------------------------------------------------------------------
 FUNCTION zExportAsExcel
