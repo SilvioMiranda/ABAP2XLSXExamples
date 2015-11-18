@@ -5,7 +5,7 @@
 "- table on the frontend server via ABAP2XLSX.
 "-
 "-----------------------------------------------------------------------
-FUNCTION ZSYLVIA2
+FUNCTION zExportAsExcel
   IMPORTING
     VALUE(IV_NAME) TYPE STRING
     VALUE(IV_WHERE) TYPE STRING OPTIONAL
