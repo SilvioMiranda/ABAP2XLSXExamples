@@ -61,8 +61,7 @@ FUNCTION zExportAsExcel
   cl_gui_frontend_services=>gui_download(
     EXPORTING
       bin_filesize = lv_bytecount
-      filename     = 'C:\Users\Public\Documents\' && lv_name &&
-        '.xlsx'
+      filename     = 'C:\Users\Public\Documents\' && lv_name && '.xlsx'
       filetype     = 'BIN'
     CHANGING
       data_tab     = lt_rawdata
