@@ -57,6 +57,10 @@ FUNCTION zExportAsExcel
     iv_xstring  = lv_xlsxdatastream ).
   lv_bytecount = xstrlen( lv_xlsxdatastream ).
 
+  "-Replace all slashes-------------------------------------------------
+  lv_Name = iv_name.
+  Replace All Occurrences Of '/' In lv_name With '_'.
+
   "-Save file on frontend server----------------------------------------
   cl_gui_frontend_services=>gui_download(
     EXPORTING
