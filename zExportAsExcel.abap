@@ -50,7 +50,7 @@ FUNCTION zExportAsExcel
     "CREATE OBJECT lo_excelwriter TYPE ZCL_EXCEL_WRITER_HUGE_FILE.
     lv_xlsxdatastream = lo_excelwriter->write_file( lo_excel ).
   CATCH cx_root.
-
+    "Your error routine here
   ENDTRY.
 
   "-Convert xstring to binary-------------------------------------------
@@ -73,7 +73,7 @@ FUNCTION zExportAsExcel
     EXCEPTIONS
       OTHERS = 1 ).
   IF sy-subrc <> 0.
-
+    "Your error routine here
   ENDIF.
 
 ENDFUNCTION.
