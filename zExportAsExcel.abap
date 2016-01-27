@@ -16,7 +16,7 @@ FUNCTION zExportAsExcel
 
 "-Variables-------------------------------------------------------------
   DATA lo_excel TYPE REF TO ZCL_EXCEL.
-  DATA lo_worksheet TYPE REF TO ZCL_EXCEL_WORKSHEETS.
+  DATA lo_worksheet TYPE REF TO ZCL_EXCEL_WORKSHEET.
   DATA lo_excelwriter TYPE REF TO ZIF_EXCEL_WRITER.
   DATA lv_xlsxdatastream TYPE xstring.
   DATA lt_rawdata TYPE solix_tab.
