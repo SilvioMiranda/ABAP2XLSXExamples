@@ -47,6 +47,7 @@ FUNCTION zExportAsExcel
     lo_worksheet = lo_excel->get_active_worksheet( ).
     lo_worksheet->bind_table( ip_table = <wa> ).
     CREATE OBJECT lo_excelwriter TYPE ZCL_EXCEL_WRITER_2007.
+    "CREATE OBJECT lo_excelwriter TYPE ZCL_EXCEL_WRITER_HUGE_FILE.
     lv_xlsxdatastream = lo_excelwriter->write_file( lo_excel ).
   CATCH cx_root.
 
