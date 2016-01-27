@@ -7,6 +7,9 @@
 "- table the SQL where clause and the IV_CDS_PARAMS the necessary
 "- parameter(s) of the CDS view.
 "-
+"- Hint: bind_table throws an exception if the table contains a hex
+"-       string field.
+"-
 "-----------------------------------------------------------------------
 FUNCTION zExportAsExcel
   IMPORTING
