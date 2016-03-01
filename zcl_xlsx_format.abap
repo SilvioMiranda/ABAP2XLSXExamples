@@ -1,4 +1,11 @@
 
+"-----------------------------------------------------------------------
+"-
+"- abap2xlsx formatter class to set special formats for a range of
+"- fields in an Excel table.
+"-
+"-----------------------------------------------------------------------
+
 CLASS zcl_xlsx_format DEFINITION
   PUBLIC
   CREATE PUBLIC .
