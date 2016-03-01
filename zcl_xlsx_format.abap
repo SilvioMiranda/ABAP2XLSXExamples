@@ -166,6 +166,7 @@ CLASS zcl_xlsx_format IMPLEMENTATION.
         ENDDO.
 
       CATCH cx_root.
+        "Your error routine here
 
     ENDTRY.
 
@@ -264,6 +265,7 @@ CLASS zcl_xlsx_format IMPLEMENTATION.
         ENDDO.
 
       CATCH cx_root.
+        "Your error routine here
 
     ENDTRY.
 
@@ -341,6 +343,7 @@ CLASS zcl_xlsx_format IMPLEMENTATION.
         ENDDO.
 
       CATCH cx_root.
+        "Your error routine here
 
     ENDTRY.
 
@@ -409,6 +412,7 @@ CLASS zcl_xlsx_format IMPLEMENTATION.
         ENDDO.
 
       CATCH cx_root.
+        "Your error routine here
 
     ENDTRY.
 
@@ -477,6 +481,7 @@ CLASS zcl_xlsx_format IMPLEMENTATION.
         ENDDO.
 
       CATCH cx_root.
+        "Your error routine here
 
     ENDTRY.
 
@@ -543,6 +548,7 @@ CLASS zcl_xlsx_format IMPLEMENTATION.
         ENDDO.
 
       CATCH cx_root.
+        "Your error routine here
 
     ENDTRY.
 
