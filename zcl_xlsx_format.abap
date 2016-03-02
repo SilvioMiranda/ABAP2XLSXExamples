@@ -149,21 +149,21 @@ CLASS zcl_xlsx_format IMPLEMENTATION.
         lv_fill-filltype = zcl_excel_style_fill=>c_fill_solid.
         lv_fill-fgcolor-rgb = i_bg_color.
 
-        DO lv_row_end TIMES.
-          lv_row = sy-index.
-          IF lv_row < lv_row_start. CONTINUE. ENDIF.
-          DO lv_col_end TIMES.
-            lv_col = sy-index.
-            IF lv_col < lv_col_start. CONTINUE. ENDIF.
+        lv_row = lv_row_start.
+        WHILE lv_row <= lv_row_end.
+          lv_col = lv_col_start.
+          WHILE lv_col <= lv_col_end.
             lv_col_alpha =
-              zcl_excel_common=>convert_column2alpha( ip_column = lv_col ).
+              /gkv/ca03_cl_common=>convert_column2alpha( ip_column = lv_col ).
             m_rcl_worksheet->change_cell_style(
               EXPORTING
                 ip_column = lv_col_alpha
                 ip_row = lv_row
                 ip_fill = lv_fill ).
-          ENDDO.
-        ENDDO.
+            lv_col = lv_col + 1.
+          ENDWHILE.
+          lv_row = lv_row + 1.
+        ENDWHILE.
 
       CATCH cx_root.
         "Your error routine here
@@ -217,52 +217,52 @@ CLASS zcl_xlsx_format IMPLEMENTATION.
         ENDIF.
 
         "-Left----------------------------------------------------------
-        DO lv_row_end TIMES.
-          lv_row = sy-index.
-          IF lv_row < lv_row_start. CONTINUE. ENDIF.
+        lv_row = lv_row_start.
+        WHILE lv_row <= lv_row_end.
           m_rcl_worksheet->change_cell_style(
             EXPORTING
-              ip_column = zcl_excel_common=>convert_column2alpha( ip_column = lv_col_start )
+              ip_column = /gkv/ca03_cl_common=>convert_column2alpha( ip_column = lv_col_start )
               ip_row = lv_row
               ip_borders_left_style = i_border_style
               ip_borders_left_color_rgb = i_border_color ).
-        ENDDO.
+          lv_row = lv_row + 1.
+        ENDWHILE.
 
         "-Right---------------------------------------------------------
-        DO lv_row_end TIMES.
-          lv_row = sy-index.
-          IF lv_row < lv_row_start. CONTINUE. ENDIF.
+        lv_row = lv_row_start.
+        WHILE lv_row <= lv_row_end.
           m_rcl_worksheet->change_cell_style(
             EXPORTING
-              ip_column = zcl_excel_common=>convert_column2alpha( ip_column = lv_col_end )
+              ip_column = /gkv/ca03_cl_common=>convert_column2alpha( ip_column = lv_col_end )
               ip_row = lv_row
               ip_borders_right_style = i_border_style
               ip_borders_right_color_rgb = i_border_color ).
-        ENDDO.
+          lv_row = lv_row + 1.
+        ENDWHILE.
 
         "-Top-----------------------------------------------------------
-        DO lv_col_end TIMES.
-          lv_col = sy-index.
-          IF lv_col < lv_col_start. CONTINUE. ENDIF.
+        lv_col = lv_col_start.
+        WHILE lv_col <= lv_col_end.
           m_rcl_worksheet->change_cell_style(
             EXPORTING
               ip_column = lv_col
               ip_row = lv_row_start
               ip_borders_top_style = i_border_style
               ip_borders_top_color_rgb = i_border_color ).
-        ENDDO.
+          lv_col = lv_col + 1.
+        ENDWHILE.
 
         "-Bottom--------------------------------------------------------
-        DO lv_col_end TIMES.
-          lv_col = sy-index.
-          IF lv_col < lv_col_start. CONTINUE. ENDIF.
+        lv_col = lv_col_start.
+        WHILE lv_col <= lv_col_end.
           m_rcl_worksheet->change_cell_style(
             EXPORTING
               ip_column = lv_col
               ip_row = lv_row_end
               ip_borders_down_style = i_border_style
               ip_borders_down_color_rgb = i_border_color ).
-        ENDDO.
+          lv_col = lv_col + 1.
+        ENDWHILE.
 
       CATCH cx_root.
         "Your error routine here
@@ -326,21 +326,21 @@ CLASS zcl_xlsx_format IMPLEMENTATION.
         lv_borders-down-border_style = i_border_style.
         lv_borders-down-border_color-rgb = i_border_color.
 
-        DO lv_row_end TIMES.
-          lv_row = sy-index.
-          IF lv_row < lv_row_start. CONTINUE. ENDIF.
-          DO lv_col_end TIMES.
-            lv_col = sy-index.
-            IF lv_col < lv_col_start. CONTINUE. ENDIF.
+        lv_row = lv_row_start.
+        WHILE lv_row <= lv_row_end.
+          lv_col = lv_col_start.
+          WHILE lv_col <= lv_col_end.
             lv_col_alpha =
-              zcl_excel_common=>convert_column2alpha( ip_column = lv_col ).
+              /gkv/ca03_cl_common=>convert_column2alpha( ip_column = lv_col ).
             m_rcl_worksheet->change_cell_style(
               EXPORTING
                 ip_column = lv_col_alpha
                 ip_row = lv_row
                 ip_borders = lv_borders ).
-          ENDDO.
-        ENDDO.
+            lv_col = lv_col + 1.
+          ENDWHILE.
+          lv_row = lv_row + 1.
+        ENDWHILE.
 
       CATCH cx_root.
         "Your error routine here
@@ -395,21 +395,21 @@ CLASS zcl_xlsx_format IMPLEMENTATION.
 
         lv_fonts-color-rgb = i_text_color.
 
-        DO lv_row_end TIMES.
-          lv_row = sy-index.
-          IF lv_row < lv_row_start. CONTINUE. ENDIF.
-          DO lv_col_end TIMES.
-            lv_col = sy-index.
-            IF lv_col < lv_col_start. CONTINUE. ENDIF.
+        lv_row = lv_row_start.
+        WHILE lv_row <= lv_row_end.
+          lv_col = lv_col_start.
+          WHILE lv_col <= lv_col_end.
             lv_col_alpha =
-              zcl_excel_common=>convert_column2alpha( ip_column = lv_col ).
+              /gkv/ca03_cl_common=>convert_column2alpha( ip_column = lv_col ).
             m_rcl_worksheet->change_cell_style(
               EXPORTING
                 ip_column = lv_col_alpha
                 ip_row = lv_row
                 ip_font = lv_fonts ).
-          ENDDO.
-        ENDDO.
+            lv_col = lv_col + 1.
+          ENDWHILE.
+          lv_row = lv_row + 1.
+        ENDWHILE.
 
       CATCH cx_root.
         "Your error routine here
@@ -464,21 +464,21 @@ CLASS zcl_xlsx_format IMPLEMENTATION.
 
         lv_fonts-size = i_text_size.
 
-        DO lv_row_end TIMES.
-          lv_row = sy-index.
-          IF lv_row < lv_row_start. CONTINUE. ENDIF.
-          DO lv_col_end TIMES.
-            lv_col = sy-index.
-            IF lv_col < lv_col_start. CONTINUE. ENDIF.
+        lv_row = lv_row_start.
+        WHILE lv_row <= lv_row_end.
+          lv_col = lv_col_start.
+          WHILE lv_col <= lv_col_end.
             lv_col_alpha =
-              zcl_excel_common=>convert_column2alpha( ip_column = lv_col ).
+              /gkv/ca03_cl_common=>convert_column2alpha( ip_column = lv_col ).
             m_rcl_worksheet->change_cell_style(
               EXPORTING
                 ip_column = lv_col_alpha
                 ip_row = lv_row
                 ip_font = lv_fonts ).
-          ENDDO.
-        ENDDO.
+            lv_col = lv_col + 1.
+          ENDWHILE.
+          lv_row = lv_row + 1.
+        ENDWHILE.
 
       CATCH cx_root.
         "Your error routine here
@@ -531,21 +531,21 @@ CLASS zcl_xlsx_format IMPLEMENTATION.
 
         lv_fonts-bold = abap_true.
 
-        DO lv_row_end TIMES.
-          lv_row = sy-index.
-          IF lv_row < lv_row_start. CONTINUE. ENDIF.
-          DO lv_col_end TIMES.
-            lv_col = sy-index.
-            IF lv_col < lv_col_start. CONTINUE. ENDIF.
+        lv_row = lv_row_start.
+        WHILE lv_row <= lv_row_end.
+          lv_col = lv_col_start.
+          WHILE lv_col <= lv_col_end.
             lv_col_alpha =
-              zcl_excel_common=>convert_column2alpha( ip_column = lv_col ).
+              /gkv/ca03_cl_common=>convert_column2alpha( ip_column = lv_col ).
             m_rcl_worksheet->change_cell_style(
               EXPORTING
                 ip_column = lv_col_alpha
                 ip_row = lv_row
                 ip_font = lv_fonts ).
-          ENDDO.
-        ENDDO.
+            lv_col = lv_col + 1.
+          ENDWHILE.
+          lv_row = lv_row + 1.
+        ENDWHILE.
 
       CATCH cx_root.
         "Your error routine here
